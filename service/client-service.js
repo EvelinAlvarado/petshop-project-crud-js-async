@@ -41,42 +41,62 @@ const clientTable = document.querySelector("[data-table]");
 // CRUD: Create(POST), Read(GET), Update(PUT/PATCH) & Delete(DELETE)
 // console.log("CLIENT-SERVICE");
 
+/* ------------------------------ */
+//!PROMISE
+
 // Function to fetch client profiles from the server
+// const clientList = () => {
+//   // Create a new Promise to handle asynchronous operations
+//   const myPromise = new Promise((resolve, reject) => {
+//     // Create an instance of XMLHttpRequest
+//     /* Create an XMLHttpRequest object, which is a browser feature that allows making HTTP requests from the client */
+//     const xhr = new XMLHttpRequest();
+
+//     // Open an HTTP connection with the GET method to the URL "http://localhost:3000/profile"
+//     // open(method, url)
+//     xhr.open("GET", "http://localhost:3000/profile");
+
+//     // Send the request to the server. Initiates communication with the server to retrieve profile information.
+//     xhr.send();
+
+//     // Set up an event handler that triggers when the request is successfully completed
+//     xhr.onload = () => {
+//       // When the request is complete, the code within this function is executed
+
+//       // Get the server response in JSON format
+//       const profilesDataResponse = JSON.parse(xhr.response);
+//       console.log(profilesDataResponse);
+
+//       // Check the status code of the response
+//       if (xhr.status >= 400) {
+//         // If the status code indicates an error, reject the promise with the response data
+//         reject(profilesDataResponse);
+//       } else {
+//         // If the status code is okay, resolve the promise with the response data
+//         resolve(profilesDataResponse);
+//       }
+//     };
+//   });
+
+//   // Return the promise for further chaining
+//   return myPromise;
+// };
+
+/* ------------------------------ */
+
+//!FETCH API
+// Note: Fetch API is used for making HTTP requests. The fetch() function returns a Promise
+// that resolves to the Response object representing the completion or failure of the request.
+// It simplifies the process of handling asynchronous operations compared to using a raw Promise
+// or XMLHttpRequest, offering a more modern and concise interface for fetching resources.
+
+// Function to fetch client profiles from the server using Fetch API
 const clientList = () => {
-  // Create a new Promise to handle asynchronous operations
-  const myPromise = new Promise((resolve, reject) => {
-    // Create an instance of XMLHttpRequest
-    /* Create an XMLHttpRequest object, which is a browser feature that allows making HTTP requests from the client */
-    const xhr = new XMLHttpRequest();
-
-    // Open an HTTP connection with the GET method to the URL "http://localhost:3000/profile"
-    // open(method, url)
-    xhr.open("GET", "http://localhost:3000/profile");
-
-    // Send the request to the server. Initiates communication with the server to retrieve profile information.
-    xhr.send();
-
-    // Set up an event handler that triggers when the request is successfully completed
-    xhr.onload = () => {
-      // When the request is complete, the code within this function is executed
-
-      // Get the server response in JSON format
-      const profilesDataResponse = JSON.parse(xhr.response);
-      console.log(profilesDataResponse);
-
-      // Check the status code of the response
-      if (xhr.status >= 400) {
-        // If the status code indicates an error, reject the promise with the response data
-        reject(profilesDataResponse);
-      } else {
-        // If the status code is okay, resolve the promise with the response data
-        resolve(profilesDataResponse);
-      }
-    };
+  // Use the Fetch API to make a GET request to the server
+  return fetch("http://localhost:3000/profile").then((response) => {
+    // The response.json() method returns a promise that resolves to the parsed JSON data
+    return response.json();
   });
-
-  // Return the promise for further chaining
-  return myPromise;
 };
 
 // console.log(clientList());
