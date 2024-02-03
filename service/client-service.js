@@ -61,6 +61,19 @@ const clientList = () => {
 
 // console.log(clientList());
 
+// Function to register a new client on the server using Fetch API
+const registerNewClient = (name, email) => {
+  return fetch("http://localhost:3000/profile", {
+    method: "POST", // Specify the HTTP method as POST
+    headers: {
+      "Content-Type": "application/json", // Set the content type of the request body
+    },
+    body: JSON.stringify({ name, email, id: uuid.v4() }), // Convert data to JSON format
+  });
+};
+
+// Exported object containing client-related services
 export const clientServices = {
-  clientList: clientList,
-}
+  clientList: clientList, // Expose the clientList function
+  registerNewClient, // Shorthand for registerNewClient: registerNewClient
+};
