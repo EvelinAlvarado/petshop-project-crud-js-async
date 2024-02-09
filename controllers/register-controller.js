@@ -14,7 +14,7 @@ formNewClient.addEventListener("submit", (event) => {
   // Use clientServices to register a new client on the server
   clientServices
     .registerNewClient(nameNewClient, emailNewClient)
-    .then((response) => {
+    .then(() => {
       // console.log(response);
       // If the registration is successful, redirect to the registration completion page
       window.location.href = "/screens/register_complete.html";

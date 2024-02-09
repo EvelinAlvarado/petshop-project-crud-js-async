@@ -51,13 +51,12 @@
 // or XMLHttpRequest, offering a more modern and concise interface for fetching resources.
 
 // Function to fetch client profiles from the server using Fetch API
-const clientList = () => {
-  // Use the Fetch API to make a GET request to the server
-  return fetch("http://localhost:3000/profile").then((response) => {
+// Use the Fetch API to make a GET request to the server
+const clientList = () =>
+  fetch("http://localhost:3000/profile").then((response) => {
     // The response.json() method returns a promise that resolves to the parsed JSON data
     return response.json();
   });
-};
 
 // console.log(clientList());
 
@@ -72,8 +71,17 @@ const registerNewClient = (name, email) => {
   });
 };
 
+// Function to delete a client from the server using Fetch API
+const deleteClient = (id) => {
+  console.log("Delete to:", id);
+  return fetch(`http://localhost:3000/profile/${id}`, {
+    method: "DELETE",
+  });
+};
+
 // Exported object containing client-related services
 export const clientServices = {
   clientList: clientList, // Expose the clientList function
   registerNewClient, // Shorthand for registerNewClient: registerNewClient
+  deleteClient, // Expose the deleteClient function
 };
