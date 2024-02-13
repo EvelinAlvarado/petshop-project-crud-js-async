@@ -79,9 +79,18 @@ const deleteClient = (id) => {
   });
 };
 
+// Function to fetch client information for editing from the server using Fetch API
+const editClient = (id) => {
+  // Use the Fetch API to make a GET request to retrieve client data based on the provided ID
+  return fetch(`http://localhost:3000/profile/${id}`).then((response) =>
+    response.json() // Parse the JSON data from the response
+  );
+};
+
 // Exported object containing client-related services
 export const clientServices = {
   clientList: clientList, // Expose the clientList function
   registerNewClient, // Shorthand for registerNewClient: registerNewClient
   deleteClient, // Expose the deleteClient function
+  editClient, // Expose the editClient function
 };

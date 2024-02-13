@@ -17,7 +17,7 @@ const createNewRow = (name, email, id) => {
       <ul class="table__button-control">
         <li>
           <a
-            href="../screens/edit_client.html"
+            href="../screens/edit_client.html?id=${id}"
             class="simple-button simple-button--edit"
           >
             Edit

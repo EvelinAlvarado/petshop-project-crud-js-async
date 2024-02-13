@@ -1,4 +1,4 @@
-.formulario {
+.form {
   margin-top: 2rem;
 }
 
@@ -51,24 +51,24 @@
   transition: all 0.25s;
 }
 
-.input-container--invalido {
+.input-container--invalid {
   margin-bottom: 0.5rem;
 }
 
-.input-container--invalido .input {
+.input-container--invalid .input {
   border: 1px solid var(--info-color);
   border-radius: 7px;
 }
 
-.input-container--invalido .input-label {
+.input-container--invalid .input-label {
   color: var(--info-color);
 }
 
-.input-menssage-error {
+.input-message-error {
   display: none;
 }
 
-.input-container--invalido .input-menssage-error {
+.input-container--invalid .input-message-error {
   color: var(--info-color);
   display: block;
   margin-top: 0.5rem;
@@ -114,7 +114,7 @@
   transition: all 0.25s;
 }
 
-.textarea-container--invalido {
+.textarea-container--invalid {
   margin-bottom: 0.5rem;
 }
 
@@ -122,15 +122,15 @@
   border: 1px solid var(--info-color);
 }
 
-.textarea-container--invalido .textarea-label {
+.textarea-container--invalid .textarea-label {
   color: var(--info-color);
 }
 
-.textarea-menssage-error {
+.textarea-message-error {
   display: none;
 }
 
-.textarea-container--invalido .textarea-menssage-error {
+.textarea-container--invalid .textarea-message-error {
   display: block;
   color: var(--info-color);
   margin-top: 0.5rem;
