@@ -1,8 +1,8 @@
 {
   "profile": [
     {
-      "name": "Harland Lohora",
-      "email": "harland@gmail.com",
+      "name": "Evelin",
+      "email": "evelin@gmail.com",
       "id": 1
     },
     {
@@ -14,6 +14,11 @@
       "name": "Ximena",
       "email": "ximena@gmail.com",
       "id": "8b225f06-0ad6-4efe-a981-49a8f271e8f4"
+    },
+    {
+      "name": "Boris",
+      "email": "boris@gmail.com",
+      "id": "78407b07-9cf5-4bfb-8dbd-ba180029ad17"
     }
   ]
 }

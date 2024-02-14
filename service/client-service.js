@@ -82,15 +82,29 @@ const deleteClient = (id) => {
 // Function to fetch client information for editing from the server using Fetch API
 const editClient = (id) => {
   // Use the Fetch API to make a GET request to retrieve client data based on the provided ID
-  return fetch(`http://localhost:3000/profile/${id}`).then((response) =>
-    response.json() // Parse the JSON data from the response
+  return fetch(`http://localhost:3000/profile/${id}`).then(
+    (response) => response.json() // Parse the JSON data from the response
   );
 };
 
+// Function to update client information on the server using Fetch API
+const updateClient = (name, email, id) => {
+  // Use the Fetch API to make a PUT request to update client data based on the provided ID
+  return fetch(`http://localhost:3000/profile/${id}`, {
+    method: "PUT", // Specify the HTTP method as PUT
+    headers: {
+      "Content-Type": "application/json", // Set the content type of the request body
+    },
+    body: JSON.stringify({ name, email }), // Convert data to JSON format
+  })
+    .then((response) => response)
+    .catch((err) => console.log(err));
+};
 // Exported object containing client-related services
 export const clientServices = {
   clientList: clientList, // Expose the clientList function
   registerNewClient, // Shorthand for registerNewClient: registerNewClient
   deleteClient, // Expose the deleteClient function
   editClient, // Expose the editClient function
+  updateClient, // Expose the updateClient function
 };

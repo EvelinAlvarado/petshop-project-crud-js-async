@@ -1,5 +1,8 @@
 import { clientServices } from "../service/client-service.js";
 
+// Get reference to the form element in the HTML document
+const form = document.querySelector("[data-form");
+
 // Function to retrieve and display client information for editing
 const getInfo = () => {
   // Get the current URL
@@ -29,4 +32,23 @@ const getInfo = () => {
   });
 };
 
+// Invoke the getInfo function when the page loads
 getInfo();
+
+// Event listener for the form's submit event
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const url = new URL(window.location);
+  const idUrl = url.searchParams.get("id");
+
+  // Get the updated client information from the form fields
+  const editName = document.querySelector("[data-name]").value;
+  const editEmail = document.querySelector("[data-email]").value;
+  console.log(editName, "---", editEmail);
+
+  // Call the updateClient function to update client information on the server
+  clientServices.updateClient(editName, editEmail, idUrl).then(() => {
+    // Redirect to the edition complete page after successful update
+    window.location.href = "/screens/edition_complete.html";
+  });
+});
