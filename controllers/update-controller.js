@@ -76,7 +76,7 @@ const getInfo = async () => {
 getInfo();
 
 // Event listener for the form's submit event
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const url = new URL(window.location);
   const idUrl = url.searchParams.get("id");
@@ -86,9 +86,14 @@ form.addEventListener("submit", (event) => {
   const editEmail = document.querySelector("[data-email]").value;
   console.log(editName, "---", editEmail);
 
-  // Call the updateClient function to update client information on the server
-  clientServices.updateClient(editName, editEmail, idUrl).then(() => {
+  try {
+    // Call the updateClient function to update client information on the server
+    await clientServices.updateClient(editName, editEmail, idUrl);
+
     // Redirect to the edition complete page after successful update
     window.location.href = "/screens/edition_complete.html";
-  });
+  } catch (error) {
+    // Handle errors, you can alert or log the error
+    alert("An error occurred: " + error);
+  }
 });

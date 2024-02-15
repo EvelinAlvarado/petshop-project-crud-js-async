@@ -38,19 +38,29 @@ const createNewRow = (name, email, id) => {
   // Select the delete button within the current table row
   const deleteBtn = tableRow.querySelector("button");
   // Add a click event listener to the delete button
-  deleteBtn.addEventListener("click", () => {
+  deleteBtn.addEventListener("click", async () => {
     // Retrieve the unique ID associated with the client from the button's id attribute
     const idClient = deleteBtn.id;
     console.log("Click: ", idClient);
-    // Call the deleteClient service to remove the client on the server
-    clientServices
-      .deleteClient(idClient)
-      .then((response) => {
-        console.log(response);
+
+    try {
+      // Call the deleteClient service to remove the client on the server
+      const response = await clientServices.deleteClient(idClient);
+      console.log(response);
+
+      // Check if the deletion was successful
+      if (response.status === 200) {
+        console.log("Client deleted successfully.");
         // Remove the row from the table after successful deletion
         tableRow.remove();
-      })
-      .catch((error) => alert("An error occurred: ", error));
+      } else {
+        console.log("Client deletion failed.");
+        // Handle the case where deletion was not successful
+        throw new Error();
+      }
+    } catch (error) {
+      alert("An error occurred: ", error);
+    }
   });
 
   // Return the created row
@@ -60,14 +70,24 @@ const createNewRow = (name, email, id) => {
 // Get the reference to the table in the HTML document
 const clientTable = document.querySelector("[data-table]");
 
-// Call the clientList function to fetch profiles from the server
-clientServices
-  .clientList()
-  .then((profilesDataOfMyPromise) => {
-    // If the promise is fulfilled, iterate through profiles and add new rows to the table
-    profilesDataOfMyPromise.forEach(({ name, email, id }) => {
-      const newTableRow = createNewRow(name, email, id);
-      clientTable.appendChild(newTableRow);
-    });
-  })
-  .catch((error) => alert("An error occurred: " + error));
+// Function to fetch profiles from the server using async/await
+const fetchProfiles = async () => {
+  try {
+    const profilesDataOfMyPromise = await clientServices.clientList();
+
+    if (!profilesDataOfMyPromise || profilesDataOfMyPromise.length === 0) {
+      throw new Error("No profiles found.");
+    } else {
+      // If the promise is fulfilled, iterate through profiles and add new rows to the table
+      profilesDataOfMyPromise.forEach(({ name, email, id }) => {
+        const newTableRow = createNewRow(name, email, id);
+        clientTable.appendChild(newTableRow);
+      });
+    }
+  } catch (error) {
+    alert("An error occurred: " + error);
+  }
+};
+
+// Call the fetchProfiles function
+fetchProfiles();
