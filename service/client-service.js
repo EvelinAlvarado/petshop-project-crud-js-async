@@ -52,16 +52,26 @@
 
 // Function to fetch client profiles from the server using Fetch API
 // Use the Fetch API to make a GET request to the server
-const clientList = () =>
+/* const clientList = () =>
   fetch("http://localhost:3000/profile").then((response) => {
     // The response.json() method returns a promise that resolves to the parsed JSON data
     return response.json();
-  });
+  }); */
+
+// Function to fetch profiles from the server using async/await
+const clientList = async () => {
+  try {
+    const response = await fetch("http://localhost:3000/profile");
+    return response.json();
+  } catch (error) {
+    throw new Error("Error fetching profiles: ", error.message);
+  }
+};
 
 // console.log(clientList());
 
 // Function to register a new client on the server using Fetch API
-const registerNewClient = (name, email) => {
+/* const registerNewClient = (name, email) => {
   return fetch("http://localhost:3000/profile", {
     method: "POST", // Specify the HTTP method as POST
     headers: {
@@ -69,26 +79,68 @@ const registerNewClient = (name, email) => {
     },
     body: JSON.stringify({ name, email, id: uuid.v4() }), // Convert data to JSON format
   });
+}; */
+
+// Function to register a new client on the server using async/await
+const registerNewClient = async (name, email) => {
+  try {
+    const response = await fetch("http://localhost:3000/profile", {
+      method: "POST", // Specify the HTTP method as POST
+      headers: {
+        "Content-Type": "application/json", // Set the content type of the request body
+      },
+      body: JSON.stringify({ name, email, id: uuid.v4() }), // Convert data to JSON format
+    });
+    return response;
+  } catch (error) {
+    throw new Error("Error registering new client: ", error.message);
+  }
 };
 
 // Function to delete a client from the server using Fetch API
-const deleteClient = (id) => {
+/* const deleteClient = (id) => {
   console.log("Delete to:", id);
   return fetch(`http://localhost:3000/profile/${id}`, {
     method: "DELETE",
   });
+}; */
+
+// Function to delete a client from the server using async/await
+const deleteClient = async (id) => {
+  try {
+    console.log("Delete to: ", id);
+    const response = await fetch(`http://localhost:3000/profile/${id}`, {
+      method: "DELETE",
+    });
+    return response;
+  } catch (error) {
+    throw new Error("Error deleting client: ", error.message);
+  }
 };
 
 // Function to fetch client information for editing from the server using Fetch API
-const editClient = (id) => {
+/* const editClient = (id) => {
   // Use the Fetch API to make a GET request to retrieve client data based on the provided ID
   return fetch(`http://localhost:3000/profile/${id}`).then(
     (response) => response.json() // Parse the JSON data from the response
   );
+}; */
+
+// Function to fetch client information for editing from the server using async/await
+const editClient = async (id) => {
+  try {
+    const response = await fetch(`http://localhost:3000/profile/${id}`);
+    return response.json();
+  } catch (error) {
+    throw new Error(
+      "Error fetching client information for editing: ",
+      error.message
+    );
+  }
 };
 
 // Function to update client information on the server using Fetch API
-const updateClient = (name, email, id) => {
+/* const updateClient = (name, email, id) => {
   // Use the Fetch API to make a PUT request to update client data based on the provided ID
   return fetch(`http://localhost:3000/profile/${id}`, {
     method: "PUT", // Specify the HTTP method as PUT
@@ -99,7 +151,23 @@ const updateClient = (name, email, id) => {
   })
     .then((response) => response)
     .catch((err) => console.log(err));
+}; */
+
+const updateClient = async (name, email, id) => {
+  try {
+    const response = await fetch(`http://localhost:3000/profile/${id}`, {
+      method: "PUT", // Specify the HTTP method as PUT
+      headers: {
+        "Content-Type": "application/json", // Set the content type of the request body
+      },
+      body: JSON.stringify({ name, email }), // Convert data to JSON format
+    });
+    return response;
+  } catch (error) {
+    throw new Error("Error updating client information:", error, massage);
+  }
 };
+
 // Exported object containing client-related services
 export const clientServices = {
   clientList: clientList, // Expose the clientList function

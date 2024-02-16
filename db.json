@@ -6,19 +6,24 @@
       "id": 1
     },
     {
-      "name": "Gigio",
-      "email": "gigio@gmail.com",
+      "name": "Giorgia",
+      "email": "giorgia@gmail.com",
       "id": "ac895e84-53b3-4dd0-b09c-bb19342118a2"
     },
     {
-      "name": "Ximena",
-      "email": "ximena@gmail.com",
+      "name": "Henrique",
+      "email": "henrique@gmail.com",
       "id": "8b225f06-0ad6-4efe-a981-49a8f271e8f4"
     },
     {
       "name": "Boris",
       "email": "boris@gmail.com",
       "id": "78407b07-9cf5-4bfb-8dbd-ba180029ad17"
+    },
+    {
+      "name": "Alexia",
+      "email": "alexia@gmail.com",
+      "id": "af305648-1513-46c8-bb07-2f8f75e338f5"
     }
   ]
 }
