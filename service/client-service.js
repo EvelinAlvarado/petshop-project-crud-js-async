@@ -61,7 +61,8 @@
 // Function to fetch profiles from the server using async/await
 const clientList = async () => {
   try {
-    const response = await fetch("http://localhost:3000/profile");
+    //const response = await fetch("http://localhost:3000/profile");
+    const response = await fetch("https://json-server-petshop-project-crud-js-async.vercel.app/profile");
     return response.json();
   } catch (error) {
     throw new Error("Error fetching profiles: ", error.message);
@@ -84,7 +85,8 @@ const clientList = async () => {
 // Function to register a new client on the server using async/await
 const registerNewClient = async (name, email) => {
   try {
-    const response = await fetch("http://localhost:3000/profile", {
+    //const response = await fetch("http://localhost:3000/profile", {
+    const response = await fetch("https://json-server-petshop-project-crud-js-async.vercel.app/profile", {
       method: "POST", // Specify the HTTP method as POST
       headers: {
         "Content-Type": "application/json", // Set the content type of the request body
@@ -109,7 +111,8 @@ const registerNewClient = async (name, email) => {
 const deleteClient = async (id) => {
   try {
     console.log("Delete to: ", id);
-    const response = await fetch(`http://localhost:3000/profile/${id}`, {
+    //const response = await fetch(`http://localhost:3000/profile/${id}`, {
+    const response = await fetch(`https://json-server-petshop-project-crud-js-async.vercel.app/profile/${id}`, {
       method: "DELETE",
     });
     return response;
@@ -129,7 +132,8 @@ const deleteClient = async (id) => {
 // Function to fetch client information for editing from the server using async/await
 const editClient = async (id) => {
   try {
-    const response = await fetch(`http://localhost:3000/profile/${id}`);
+    //const response = await fetch(`http://localhost:3000/profile/${id}`);
+    const response = await fetch(`https://json-server-petshop-project-crud-js-async.vercel.app/profile/${id}`);
     return response.json();
   } catch (error) {
     throw new Error(
@@ -155,7 +159,8 @@ const editClient = async (id) => {
 
 const updateClient = async (name, email, id) => {
   try {
-    const response = await fetch(`http://localhost:3000/profile/${id}`, {
+    //const response = await fetch(`http://localhost:3000/profile/${id}`, {
+    const response = await fetch(`https://json-server-petshop-project-crud-js-async.vercel.app/profile/${id}`, {
       method: "PUT", // Specify the HTTP method as PUT
       headers: {
         "Content-Type": "application/json", // Set the content type of the request body
