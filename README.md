@@ -9,6 +9,7 @@
   <img src="https://img.shields.io/badge/Math.js-DC3912?style=for-the-badge&logo=npm&logoColor=white" />
   <img src="https://img.shields.io/badge/JSON_Server-npm-CB3837?style=for-the-badge&logo=npm&logoColor=white">
   <img src="https://img.shields.io/badge/API-Connected-007BFF?style=for-the-badge&logo=API&logoColor=white">
+  <img src="https://img.shields.io/badge/uuid-blue?style=for-the-badge&logo=npm&logoColor=white" />
 </div>
 
 ## Description
