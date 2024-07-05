@@ -3,7 +3,7 @@
     {
       "name": "Evelin",
       "email": "evelin@gmail.com",
-      "id": 1
+      "id": "1"
     },
     {
       "name": "Giorgia",
@@ -24,6 +24,11 @@
       "name": "Alexia",
       "email": "alexia@gmail.com",
       "id": "af305648-1513-46c8-bb07-2f8f75e338f5"
+    },
+    {
+      "id": "06d06e6c-3c38-417b-9745-099a2b6787d8",
+      "name": "persona",
+      "email": "eve@cc"
     }
   ]
 }

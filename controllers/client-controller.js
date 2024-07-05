@@ -49,17 +49,19 @@ const createNewRow = (name, email, id) => {
       console.log(response);
 
       // Check if the deletion was successful
-      if (response.status === 200) {
+      //if (response.status === 200) {
+      if (response.ok) {
         console.log("Client deleted successfully.");
         // Remove the row from the table after successful deletion
         tableRow.remove();
       } else {
         console.log("Client deletion failed.");
         // Handle the case where deletion was not successful
-        throw new Error();
+        throw new Error(`Failed to delete client. Status: ${response.status}`);
       }
     } catch (error) {
       alert("An error occurred: ", error);
+      console.error("An error occurred:", error);
     }
   });
 
@@ -86,6 +88,7 @@ const fetchProfiles = async () => {
     }
   } catch (error) {
     alert("An error occurred: " + error);
+    console.error("An error occurred:", error);
   }
 };
 

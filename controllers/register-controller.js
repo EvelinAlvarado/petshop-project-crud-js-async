@@ -17,7 +17,7 @@ formNewClient.addEventListener("submit", (event) => {
     .then(() => {
       // console.log(response);
       // If the registration is successful, redirect to the registration completion page
-      window.location.href = "/screens/register_complete.html";
+      window.location.href = "../screens/register_complete.html";
     })
     .catch((error) => console.log(error));
 });
