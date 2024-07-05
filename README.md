@@ -8,6 +8,7 @@
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"  /> 
   <img src="https://img.shields.io/badge/Math.js-DC3912?style=for-the-badge&logo=npm&logoColor=white" />
   <img src="https://img.shields.io/badge/JSON_Server-npm-CB3837?style=for-the-badge&logo=npm&logoColor=white">
+  <img src="https://img.shields.io/badge/API-Connected-007BFF?style=for-the-badge&logo=API&logoColor=white">
 </div>
 
 ## Description
@@ -32,7 +33,8 @@ This project is a simple CRUD (Create, Read, Update, Delete) application for man
 - Developed by Evelin Alvarado.
 - Find me on [GitHub](https://github.com/EvelinAlvarado) and [LinkedIn](https://www.linkedin.com/in/evelinalvarado/).
 
-Check out the live project: [Petshop CRUD Project](https://petshop-project-crud-js-async.vercel.app/)
+Check out the live project: [Petshop CRUD Project](https://petshop-project-crud-js-async.vercel.app/) </br>
+The link for the [JSON server used from Vercel](https://jsonserver-petshop-project-crud-js-async.vercel.app/)
 
 ### Note
 
